@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "334118327866",
+    "project_id": "neighborhoodchores-e4121",
+    "storage_bucket": "neighborhoodchores-e4121.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334118327866:android:7ae5fe109c004ef4188703",
+        "android_client_info": {
+          "package_name": "com.dn.neighborhoodchores"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334118327866-u6q3lr7nci6nkr5va5bsncaf0jij9quq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dn.neighborhoodchores",
+            "certificate_hash": "98a4732962e2590b867ddc9643d62f2359dd8cc4"
+          }
+        },
+        {
+          "client_id": "334118327866-02btoo892nf8ij5tndpbnekjpg4nrgpv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwCWfhRLYw1kxhbQAhVX8G66sHCfEgQCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334118327866-02btoo892nf8ij5tndpbnekjpg4nrgpv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

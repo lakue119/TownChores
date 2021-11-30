@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.dn.nhc.ui.main.home.HomeViewModel" />
+        <variable
+            name="fragment"
+            type="com.dn.nhc.ui.main.home.HomeFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/include_header"
+            app:backVisible="@{false}"
+            app:headTitle="@{@string/app_name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/include">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/srlPheed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include
+                        android:id="@+id/includeEmpty"
+                        android:paddingTop="40dp"
+                        description="@{@string/empty_pheed}"
+                        imageSrc="@{@drawable/ic_empty}"
+                        layout="@layout/layout_empty"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.dn.nhc.view.NCRecyclerView
+                        android:id="@+id/ncRvPheed"
+                        onBottomCatchEvent="@{fragment.rvBottomCatch}"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:clipToPadding="false"
+                        android:paddingBottom="150dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:setAdapter="@{fragment.pheedAdapter}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabScrollTop"
+                android:onClick="@{() -> fragment.onScrollTop()}"
+                android:layout_marginBottom="140dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_round_north_24"
+                app:tint="@color/black_1000_white"
+                android:backgroundTint="@color/white_black"
+                app:borderWidth="0dp"
+                app:fabSize="mini"
+                app:maxImageSize="20dp"
+                app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+                android:layout_gravity="right|bottom"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

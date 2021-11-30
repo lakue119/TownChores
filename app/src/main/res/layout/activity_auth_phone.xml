@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.dn.nhc.ui.login.auth.phone.AuthPhoneActivity" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/TextView.SubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/phone_auth_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            style="@style/EditText.Box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/transparency"
+            android:hint="@string/edit_phone_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:onClick="@{() -> activity.onSendAuth()}"
+            android:id="@+id/btnSendAuth"
+            style="@style/Button.Small"
+            android:layout_marginTop="12dp"
+            android:text="@string/send_auth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber" />
+
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/etAuthNumber"
+            style="@style/EditText.Box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/transparency"
+            android:hint="@string/edit_auth_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSendAuth" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:visibility="gone"
+            android:id="@+id/btnCheckAuth"
+            android:onClick="@{() -> activity.onCheckAuth()}"
+            style="@style/Button.Small"
+            android:layout_marginTop="12dp"
+            android:text="@string/check_auth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etAuthNumber" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

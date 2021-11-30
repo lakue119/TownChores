@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="comment"
+            type="com.dn.nhc.remote.model.common.Comment" />
+        <variable
+            name="vm"
+            type="com.dn.nhc.ui.comment.CommentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:id="@+id/constraintLayout2"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:visibility="visible"
+            android:visibility="@{comment.deleted ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/ivTurn"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_turn_down"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black_1000_white" />
+
+            <com.dn.nhc.view.RoundedImageView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/ivProfile"
+                loadUrl="@{comment.user.profileImageUrl}"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/black"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toEndOf="@+id/ivTurn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rectRadius="50dp" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="@{comment.user.nickname}"
+                android:textColor="@color/black_1000_white"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="라꾸" />
+
+            <ImageView
+                android:onClick="@{() -> vm.showMenu(comment)}"
+                android:id="@+id/ivOption"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_option"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black_1000_white" />
+
+
+            <TextView
+                android:id="@+id/tvParentComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="10dp"
+                android:text="@{comment.comment}"
+                android:textColor="@color/black_1000_white"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toStartOf="@+id/ivOption"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                tools:text="시급2만원주면 함" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:text="@{comment.createdTime}"
+                android:textColor="@color/gray_999"
+                android:textSize="11dp"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvParentComment"
+                tools:text="1시간 전" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/black_200_black_800"
+            tools:visibility="gone"
+            android:visibility="@{comment.deleted ? View.VISIBLE : View.GONE}"
+            android:paddingLeft="56dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:textSize="13dp"
+                android:textColor="@color/black_1000_white"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/comment_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

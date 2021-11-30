@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.dn.nhc.ui.pheed.PheedViewModel" />
+        <variable
+            name="item"
+            type="com.dn.nhc.remote.model.common.Pheed" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:onClick="@{() -> vm.onDetailClick(item)}"
+        android:backgroundTint="@color/white_black_900"
+        android:elevation="8dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.dn.nhc.view.RoundedImageView
+                android:id="@+id/ivProfile"
+                android:scaleType="centerCrop"
+                loadUrl="@{item.user.profileImageUrl}"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rectRadius="50dp" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:text="@{item.user.nickname}"
+                android:layout_marginLeft="12dp"
+                tools:text="라꾸"
+                android:textStyle="bold"
+                android:textColor="@color/black_1000_white"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvLocation"
+                android:text="@{item.area}"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="12dp"
+                tools:text="신대방동"
+                android:textColor="@color/black_600_black_400"
+                android:textSize="11dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"/>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:text="@{item.title}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/black_1000_white"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/roundedImageView2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                tools:text="라꾸asdfasdfasdfasdfasdf" />
+
+            <com.dn.nhc.view.RoundedImageView
+                app:rectRadius="6dp"
+                loadUrlEmptyGone="@{item.images[0].imageNameUrl}"
+                android:scaleType="centerCrop"
+                android:background="@color/gray_999"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                android:id="@+id/roundedImageView2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/flexBoxTag"
+                android:layout_marginTop="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap"
+                addItem="@{item.hashtags}"
+                onHashTagClickAction="@{vm.onHashTagClickAction}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <ImageView
+                android:backgroundTint="@color/black_1000_white"
+                android:layout_marginTop="24dp"
+                android:id="@+id/ivComment"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/ic_speech"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flexBoxTag"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <ImageView
+                android:backgroundTint="@color/black_1000_white"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="24dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/ic_share"
+                app:layout_constraintStart_toEndOf="@+id/ivComment"
+                app:layout_constraintTop_toBottomOf="@+id/flexBoxTag"
+                tools:layout_editor_absoluteY="16dp" />
+
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:text="@{item.createdTime}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_600_black_400"
+                android:textSize="11dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="신대방동" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

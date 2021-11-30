@@ -1,0 +1,98 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.NeighborhoodChores" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/green_300</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/customTextViewFontStyle</item>
+        <item name="android:buttonStyle">@style/customButtonFontStyle</item>
+        <item name="android:editTextStyle">@style/customEditTextFontStyle</item>
+        <item name="android:radioButtonStyle">@style/customRadioButtonFontStyle</item>
+        <item name="android:checkboxStyle">@style/customCheckboxFontStyle</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+    <style name="NeighborhoodChores.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_height">52dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">17dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NeighborhoodChores.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="NeighborhoodChores.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:padding">16dp</item>
+        <item name="background">@color/transparency</item>
+    </style>
+
+    <style name="Button.Normal" parent="NeighborhoodChores.Button">
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:foreground">@drawable/ripple_6</item>
+        <item name="android:backgroundTint">@color/green_300</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <style name="Button.Small" parent="NeighborhoodChores.Button">
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:foreground">@drawable/ripple_6</item>
+        <item name="android:backgroundTint">@color/green_300</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_height">48dp</item>
+    </style>
+
+    <style name="TextView.SubTitle" parent="NeighborhoodChores.TextView">
+        <item name="android:textColor">@color/black_1000_white</item>
+        <item name="android:textSize">21dp</item>
+    </style>
+
+    <style name="TextView.Header" parent="NeighborhoodChores.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black_1000_white</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+    <style name="EditText.Box" parent="NeighborhoodChores.EditText">
+        <item name="android:foreground">@drawable/foreground_radius_6_stroke2</item>
+        <item name="android:foregroundTint">@color/colorGray_d</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/black_1000_white</item>
+    </style>
+
+    <style name="NewDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>

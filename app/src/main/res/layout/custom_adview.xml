@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.kakao.adfit.ads.ba.BannerAdView
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/adFit"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+        <com.google.android.gms.ads.AdView
+            android:visibility="gone"
+            tools:visibility="visible"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/admob_banner_key"/>
+
+        <LinearLayout
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/facebookAd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            />
+
+    </LinearLayout>
+</layout>

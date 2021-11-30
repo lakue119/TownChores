@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
+        <variable
+            name="dialog"
+            type="com.dn.nhc.utils.LakueDialog" />
+        <variable
+            name="title"
+            type="String" />
+        <variable
+            name="content"
+            type="String" />
+        <variable
+            name="agree"
+            type="String" />
+        <variable
+            name="disagree"
+            type="String" />
+        <variable
+            name="image"
+            type="android.graphics.drawable.Drawable" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="20dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="20dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            drawable="@{image}"
+            isVisible="@{image == null?false: true}"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@{title}"
+            android:textColor="@color/black_1000_white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:visibility="@{TextUtils.isEmpty(title)?View.GONE:View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            tools:text="title" />
+
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@{content}"
+            android:textColor="@color/black_1000_white"
+            android:textSize="16dp"
+            android:visibility="@{TextUtils.isEmpty(content)?View.GONE:View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvContent" >
+
+            <TextView
+                android:id="@+id/tvDisagree"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:foreground="@drawable/foreground_radius_8"
+                android:foregroundTint="@color/black_600_black_400"
+                android:gravity="center"
+                android:onClick="@{() -> dialog.onDisagreeClick()}"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@{disagree}"
+                android:textColor="@color/black_1000_white"
+                android:textSize="15dp"
+                android:visibility="@{TextUtils.isEmpty(disagree)?View.GONE:View.VISIBLE}"
+                app:layout_constraintHorizontal_weight="1" />
+
+
+            <TextView
+                android:id="@+id/tvAgree"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_radius_8"
+                android:backgroundTint="@color/green_300"
+                android:gravity="center"
+                android:onClick="@{() -> dialog.onAgreeClick()}"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@{agree}"
+                android:textColor="@color/black_1000_white"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:visibility="@{TextUtils.isEmpty(agree)?View.GONE:View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

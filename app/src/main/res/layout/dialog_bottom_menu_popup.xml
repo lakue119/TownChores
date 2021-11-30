@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:background="@color/transparent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvEdit"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/background_radius_8"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/btn_menu_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvComplain"
+            android:textColor="@color/red_1100"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/background_radius_8"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/btn_menu_complain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvDelete"
+            android:textColor="@color/red_1100"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/background_radius_8"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/btn_menu_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/background_radius_8"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/btn_menu_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>

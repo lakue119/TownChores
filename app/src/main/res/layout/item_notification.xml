@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.dn.nhc.ui.main.notification.NotificationViewModel" />
+        <variable
+            name="item"
+            type="com.dn.nhc.remote.model.common.Pushes" />
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:onClick="@{() -> vm.onDetailClick(item, position)}"
+        backgroundOnOff="@{item.read}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivNoti"
+            validationNotiRead="@{item.read}"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_noti_off"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@{item.title}"
+            android:textColor="@color/black_1000_white"
+            android:textSize="13dp"
+            app:layout_constraintStart_toEndOf="@+id/ivNoti"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="[댓글 작성]" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:text="@{item.content}"
+            android:textColor="@color/black_1000_white"
+            android:textSize="13dp"
+            app:layout_constraintStart_toEndOf="@+id/ivNoti"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="[댓글 작성]" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

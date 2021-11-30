@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.dn.nhc.ui.main.search.SearchViewModel" />
+        <variable
+            name="item"
+            type="com.dn.nhc.room.RecentSearch" />
+    </data>
+    <LinearLayout
+        android:onClick="@{() -> vm.onKeywordClick(item.keyword)}"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_bottom_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black_500" />
+
+            <TextView
+                android:id="@+id/tvKeyword"
+                tools:text="awertjl"
+                android:text="@{item.keyword}"
+                android:textColor="@color/black_1000_white"
+                android:textSize="14dp"
+                android:layout_marginLeft="16dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivDelete"
+                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:onClick="@{() -> vm.deleteKeyword(item.keyword)}"
+                android:padding="8dp"
+                android:id="@+id/ivDelete"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvKeyword"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black_500" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:background="@color/black_200_black_800"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+    </LinearLayout>
+</layout>

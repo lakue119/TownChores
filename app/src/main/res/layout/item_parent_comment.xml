@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewholder"
+            type="com.dn.nhc.ui.comment.CommentAdapter.CommentViewHolder" />
+        <variable
+            name="comment"
+            type="com.dn.nhc.remote.model.common.Comment" />
+        <variable
+            name="vm"
+            type="com.dn.nhc.ui.comment.CommentViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{comment.deleted ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clParentComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.dn.nhc.view.RoundedImageView
+                    android:id="@+id/ivProfile"
+                    loadUrl="@{comment.user.profileImageUrl}"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rectRadius="50dp" />
+
+                <ImageView
+                    android:onClick="@{() -> vm.showMenu(comment)}"
+                    android:id="@+id/ivOption"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_option"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/black_1000_white" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="@{comment.user.nickname}"
+                    android:textColor="@color/black_1000_white"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="라꾸" />
+
+                <TextView
+                    android:id="@+id/tvParentComment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@{comment.comment}"
+                    android:textColor="@color/black_1000_white"
+                    android:textSize="14dp"
+                    app:layout_constraintEnd_toStartOf="@+id/ivOption"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName"
+                    tools:text="시급2만원주면 함" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@{comment.createdTime}"
+                    android:textColor="@color/gray_999"
+                    android:textSize="11dp"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/tvParentComment"
+                    tools:text="1시간 전" />
+
+                <ImageView
+                    android:onClick="@{() -> vm.onChildCommentClick(comment)}"
+                    android:id="@+id/ivComment"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/ic_speech"
+                    android:backgroundTint="@color/gray_999"
+                    app:layout_constraintStart_toEndOf="@+id/tvDate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvParentComment" />
+
+                <TextView
+                    android:onClick="@{() -> vm.onChildCommentClick(comment)}"
+                    android:id="@+id/tvChildComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/global_child_comment"
+                    android:textColor="@color/gray_999"
+                    android:textSize="11dp"
+                    app:layout_constraintStart_toEndOf="@+id/ivComment"
+                    app:layout_constraintTop_toBottomOf="@+id/tvParentComment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/black_200_black_800"
+            android:paddingLeft="36dp"
+            android:visibility="@{comment.deleted ? View.VISIBLE : View.GONE}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:textSize="13dp"
+                android:textColor="@color/black_1000_white"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/comment_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
+            android:id="@+id/rvChildComment"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            setAdapter="@{viewholder.childCommentAdapter}"
+            app:layout_constraintTop_toBottomOf="@+id/clParentComment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>

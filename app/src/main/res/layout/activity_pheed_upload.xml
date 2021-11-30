@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.dn.nhc.ui.pheed.upload.PheedUploadViewModel" />
+        <variable
+            name="tags"
+            type="java.util.ArrayList" />
+        <variable
+            name="activity"
+            type="com.dn.nhc.ui.pheed.upload.PheedUploadActivity" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/include_header"
+            app:backVisible="@{true}"
+            app:headTitle="@{@string/header_pheed_upload}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="20dp"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toTopOf="@+id/btnSendAuth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    setAdapter="@{activity.cameraAdapter}"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <View
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black_300"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/etTitle"
+                    android:hint="@string/edit_hint_title"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textSize="15dp"
+                    android:background="@color/transparency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <View
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/black_300"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:hint="@string/edit_hint_hash_tag"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textSize="15dp"
+                    onEditorTextBlankTagAction="@{vm.etGetTags}"
+                    android:background="@color/transparency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:id="@+id/flexBoxTag"
+                    addDeleteItem="@{vm.liveTags}"
+                    onTagClick="@{vm.tagClickEvent}"
+                    onTagDeleteClick="@{vm.tagDeleteClickEvent}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:alignContent="stretch"
+                    app:alignItems="stretch"
+                    app:flexWrap="wrap"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rvImage" />
+
+                <View
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/black_300"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/etContent"
+                    android:gravity="top"
+                    android:hint="@string/edit_hint_content"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textSize="15dp"
+                    android:minHeight="300dp"
+                    android:background="@color/transparency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:onClick="@{(v) -> activity.onPheedRegister(v)}"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/btnSendAuth"
+            style="@style/Button.Normal"
+            android:text="@string/global_complete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

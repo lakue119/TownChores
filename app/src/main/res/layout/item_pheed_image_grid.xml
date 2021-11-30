@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="java.util.ArrayList"/>
+        <import type="com.dn.nhc.remote.model.common.Image"/>
+        <variable
+            name="vm"
+            type="com.dn.nhc.ui.pheed.detail.PheedDetailViewModel" />
+        <variable
+            name="image"
+            type="String" />
+        <variable
+            name="count"
+            type="Integer" />
+        <variable
+            name="position"
+            type="Integer" />
+        <variable
+            name="images"
+            type="ArrayList&lt;Image&gt;" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:onClick="@{(v) -> vm.showImageDetailClick(images, position)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.dn.nhc.view.RoundedImageView
+            android:transitionName="sharePheed"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:rectRadius="4dp"
+            loadUrl="@{image}"
+            android:scaleType="centerCrop"
+            android:background="@color/gray_999"
+            android:id="@+id/rivPheed"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:background="@drawable/background_radius_8"
+            android:gravity="center"
+            tools:text="+1개"
+            android:textSize="18dp"
+            android:fontFamily="@font/lakue_font_medium"
+            android:letterSpacing="0.15"
+            android:textColor="@color/white"
+            android:text="@{vm.getCount(count)}"
+            android:visibility="@{count > 0 ? View.VISIBLE:View.GONE}"
+            android:backgroundTint="@color/black_900_op60"
+            app:layout_constraintDimensionRatio="H,1:1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

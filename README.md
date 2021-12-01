@@ -1,10 +1,12 @@
 <br>
 
-## 동네잡일
+
+
+## <img width="3.5%" src="https://user-images.githubusercontent.com/31702431/144234797-cb18a5e6-66fc-40ec-84e9-b4e3dc3d89c1.png"> 동네잡일
+
+
 
 <br>
-
-### 소소한 일상 얘기나 일손이 필요한 경우 게시글을 작성하여 내 주변 사람들에게 공유할 수 있는 서비스 입니다.
 
 ## 목차
 
@@ -14,7 +16,9 @@
 * [현재 코드의 문제점](#현재-코드의-문제점)
 * [TODO](#TODO)
 
+<br>
 
+## 앱 소개
 
 <br>
 <div>
@@ -29,7 +33,7 @@
 [구글플레이 링크]
 - 기간 : 2021.10 ~ 2021.12
 - 팀 구성 : android 1명, backend 1명
-- 역할 : android 앱 개발
+- 역할 : 기획, 디자인, Android 앱 개발
 - 내용 : 소소한 일상 얘기나 일손이 필요한 경우 게시글을 작성하여 내 주변 사람들에게 공유할 수 있는 서비스 입니다.
 
 <br>
@@ -46,31 +50,32 @@
 - Room
 - SharedPreferences
 - DataBinding
+- Coroutine 
 
 <br>
 <br>
 
 ## 처음 적용해본 경험들
-- token 헤더에 담아 전달
+- Retrofit 통신 / token 헤더에 담아 전달
   - 이전 회사에서는 항상 파라미터로 필수정보를 넣느라 매번 귀찮음을 느낌
   - 현재 회사에서 하는 방식을 보고 신세계를 경험해 좋은 지식을 습득해 프로젝트에 적용함(신세계...)
 - Login Session 처리 기능
   - 로그인 세션을 처음 접해봄.
   - 로그인 api호출 할 떄 쿠키에 전달하여 오는 Session을 SharedPreferences에 저장을 시켜놓고, api호출을 할 때 현재 로그인 되어있는 Session을 보내줘 하나의 Session을 가지고 처리.
 - 비슷한 레이아웃 뷰모델 처리
-  - 과거의 나 : 액티비디 하나당 뷰모델 하나를 가지고 있었는데, 비슷한 레이아웃의 뷰를 가질 때 viewmodel을 전달받는데 해당 뷰모델의 클래스가 달라 같은 뷰를 여러개 생성...
-  - 개선 : 비슷한 뷰모델의 부모 클래스를 생성해 상속받아서 사용...(이렇게 간단한것을...😭)
+  - 과거의 나 : Activity 하나당 ViewModel 하나를 가지고 있었는데, 비슷한 레이아웃의 뷰를 가질 때 Viewmodel을 전달받는데 해당 ViewModel의 Class가 달라 같은 뷰를 여러개 생성...
+  - 개선 : 비슷한 ViewModel의 Parent Class를 생성해 상속받아서 사용...(이렇게 간단한것을...😭)
 - 네트워크 및 에러 처리
   - 과거의 나 : api호출할 때마다 네트워크에러/서버에러/타임아웃에러 등을 체크함으로써 보일러 플레이트코드가 생김
-  - 개선 : livedata로 만들고, 나만의 에러 규칙을 통해 공통으로 사용할 수 있도록 부모 Activity와 부모 viewModel을 만들어서 처리. (매번 에러처리를 하지 않아도 알아서 자동으로 에러처리가 되니 편리해짐)
+  - 개선 : livedata로 만들고, 나만의 에러 규칙을 통해 공통으로 사용할 수 있도록 부모 Activity와 부모 ViewModel을 만들어서 처리. (매번 에러처리를 하지 않아도 알아서 자동으로 에러처리가 되니 편리해짐)
 
 <br>
 <br>
 
 ## 현재 코드의 문제점
-- DataBinding으로 RecyclerView의 adapter를 xml에서 받아오고 있다.
-  - 의문점 : adapter가 실시간으로 변경되는 것도 아닌데 단지 kotlin코드를 줄이자고 DataBinding을 사용해야할까? 라는 생각이 들었다.
-  - 개선사항 : adapter를 binding하지 않고, 그 안에 있는 data를 바인딩 하는 방식으로 변경 
+- DataBinding으로 RecyclerView의 Adapter를 xml에서 받아오고 있다.
+  - 의문점 : Adapter가 실시간으로 변경되는 것도 아닌데 단지 Kotlin코드를 줄이자고 DataBinding을 사용해야할까? 라는 생각이 들었다.
+  - 개선사항 : Adapter를 Binding하지 않고, 그 안에 있는 Data를 Binding 하는 방식으로 변경 
 - Adapter에 ViewModel을 같이 주입해서 보내줘야할까?
   - 현재 개선사항 생각중...
 
@@ -79,9 +84,8 @@
 <br>
 <br>
 
-## Git 버전관리
 
-## ✅ TODO
+## TODO
 
 - [x] CI/CD 툴 연동 (2022. 01 전까지 결정하기)
     - [x] 비트라이즈 or 젠킨스 고민중 

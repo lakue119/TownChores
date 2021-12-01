@@ -15,6 +15,7 @@
 * [처음 적용해본 경험들](#처음-적용해본-경험들)
 * [현재 코드의 문제점](#현재-코드의-문제점)
 * [TODO](#TODO)
+* [그 외 앱 이미지](#그-외-앱-이미지)
 
 <br>
 
@@ -98,3 +99,59 @@
     - [x] 사용자 언팔로우
     - [x] 사용자의 팔로워 리스트 조회
     - [x] 사용자의 팔로잉 리스트 조회
+
+## 그 외 앱 이미지
+
+### 스플레쉬 / 로그인
+<br>
+<div>
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237086-0af32b47-f4d9-4fec-91fb-e67daf4ed206.jpeg">
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237222-9f6abf14-8163-4fb9-b903-166f60930ef1.jpeg">
+</div>
+<br>
+
+### 리스트 / 상세 
+<br>
+<div>
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237280-2d4ae2c3-0fba-4a86-917b-f122f5efa277.jpeg">
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237247-160478cf-5235-447f-9d29-9e744fe72dc7.jpeg">
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237252-0ab9ebfb-9b78-452e-834a-9d64e360485f.jpeg">
+</div>
+<br>
+
+### 검색
+<br>
+<br>
+<div>
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237191-da5ebdd6-6939-4672-8b88-7ed482791704.jpeg">
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237096-3bdd7547-3d6f-484d-81e7-7639db7b2322.jpeg">
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237127-f50b41dd-b3c9-4f98-9948-d163996eed71.jpeg">
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237107-92c1bdce-2de6-46b2-84e4-e37ea545a6fb.jpeg">
+</div>
+<br>
+
+### 업로드
+<br>
+<div>
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237269-bc72c43a-1dd8-4cab-988c-5e299b9b71b7.jpeg">
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237274-48dec851-440d-46a4-8581-ab8962f24cc9.jpeg">
+</div>
+
+### 알림 
+<br>
+<div>
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237195-08d1d61b-4814-4abc-9773-ba4ef3eb27f1.jpeg">
+</div>
+<br>
+
+### 마이페이지
+<br>
+<div>
+<img width="18%" src="https://user-images.githubusercontent.com/31702431/144237202-4c311cf2-95cb-46d2-87a7-ee2cb39663bb.jpeg">
+</div>
+
+
+
+
+
+
